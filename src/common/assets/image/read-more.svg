@@ -1,0 +1,21 @@
+ <svg class="large-image-gradient" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1051.67 69">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: url(#Degradado_sin_nombre_3);
+                                                    }
+                                                </style>
+                                                <linearGradient id="Degradado_sin_nombre_3" y1="34.5" x2="1051.67"
+                                                    y2="34.5" gradientUnits="userSpaceOnUse">
+                                                    <stop offset="0" stop-color="#fff" stop-opacity="0" />
+                                                    <stop offset="0.76" stop-color="#a7a8a7" stop-opacity="0.08" />
+                                                    <stop offset="1" stop-color="#1d1e1c" stop-opacity="0.2" />
+                                                </linearGradient>
+                                            </defs>
+                                            <g id="Layer_2" data-name="Layer 2">
+                                                <g id="Capa_2" data-name="Capa 2">
+                                                    <rect class="cls-1" width="1051.67" height="69" />
+                                                </g>
+                                            </g>
+                                        </svg>

@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  aut_coming_soon_web: 
+    container_name: aut_coming_soon_web
+    build: ./
+
+  aut_landing_nginx:
+    container_name: aut_landing_nginx
+    build: ./nginx
+    ports:
+      - 3001:80
+
+networks:
+  aut_coming_soon:

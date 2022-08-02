@@ -1,0 +1,13 @@
+<svg id="Group_2023" data-name="Group 2023" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="315.608" height="411.687" viewBox="0 0 315.608 411.687">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_188" data-name="Rectangle 188" width="315.608" height="411.687" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2022" data-name="Group 2022" clip-path="url(#clip-path)">
+    <path id="Path_1802" data-name="Path 1802" d="M71.918,193.242C31.351,212,17.284,293.358,20.351,323.219s26.8,104.287,26.8,104.287-38.808,3.7-35.82,16.451H103.3L77.433,329.39l24.251-72.442,69.424-11.078,37.545,95.761,64.318-33.707s-14.993-7.524-29.1-4.5c0,0-22.854-97.883-47.864-114.463-18.309-12.165-95.784-8.836-124.087,4.278" transform="translate(-1.986 -32.27)" fill="#777"/>
+    <path id="Path_1803" data-name="Path 1803" d="M25.108,108.175A16.019,16.019,0,1,0,9.089,92.156a16.019,16.019,0,0,0,16.019,16.019" transform="translate(-1.617 -13.543)" fill="#777"/>
+    <path id="Path_1804" data-name="Path 1804" d="M0,129.425,25.751,94.451A36.928,36.928,0,1,0,69.536,34.975L95.287,0A80.359,80.359,0,1,1,0,129.425" fill="#777"/>
+    <rect id="Rectangle_187" data-name="Rectangle 187" width="245.765" height="19.9" transform="translate(85.712 135.731) rotate(-25.82)" fill="#777"/>
+  </g>
+</svg>
