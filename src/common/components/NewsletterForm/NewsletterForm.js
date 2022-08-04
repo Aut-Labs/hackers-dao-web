@@ -4,10 +4,11 @@ import NewsletterFormWrapper from "./NewsletterForm.style";
 import Button from "../Button";
 import { ethers } from "ethers";
 import { abi } from "../../../abis/dao.abi";
-const mumbaiAddress = '0x04738ff6605bb59b7b0985614279d4fF54E619c7';
-const goerliAddress = '0x04738ff6605bb59b7b0985614279d4fF54E619c7';
-import ethIcon from "common/assets/image/ethereum.svg";
-import mumbaiIcon from "common/assets/image/mumbai.svg";
+const mumbaiAddress = "0x04738ff6605bb59b7b0985614279d4fF54E619c7";
+const goerliAddress = "0x04738ff6605bb59b7b0985614279d4fF54E619c7";
+import EthIcon from "common/assets/image/ethereum.svg";
+import NextImage from "common/components/NextImage";
+import MumbaiICon from "common/assets/image/mumbai.svg";
 
 const NewsletterForm = ({ status, message, onValidated }) => {
   const { control, handleSubmit, watch } = useForm({
@@ -53,7 +54,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
     const tx = await contract.join();
     const events = await tx.wait();
     console.log(events);
-    
+
     prompt(window.ethereum.selectedAddress);
   };
 
@@ -94,7 +95,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
     const tx = await contract.join();
     const events = await tx.wait();
     console.log(events);
-    };
+  };
 
   return (
     <>
@@ -107,13 +108,23 @@ const NewsletterForm = ({ status, message, onValidated }) => {
             <div className="submit-btn">
               <Button
                 className="light"
+                icon={<NextImage height="30px" width="30px" src={EthIcon} />}
+                iconPosition="right"
                 title="Görli"
                 onClick={joinGoerli}
               />
-                <Button
+              <Button
                 className="light"
+                icon={
+                  <NextImage
+                    marginLeft="10px"
+                    height="30px"
+                    width="30px"
+                    src={MumbaiICon}
+                  />
+                }
+                iconPosition="right"
                 title="Mumbai"
-                // icon={mumbaiIcon} // Iulia
                 onClick={joinMumbai}
               />
             </div>

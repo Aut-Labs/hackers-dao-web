@@ -31,6 +31,17 @@ const NewsletterFormWrapper = styled.form`
       height: 50px;
       min-height: 50px;
       font-size: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .btn-text {
+        margin-left: 10px;
+      }
+
+      .btn-icon {
+        margin-left: 10px;
+      }
     }
   }
 
