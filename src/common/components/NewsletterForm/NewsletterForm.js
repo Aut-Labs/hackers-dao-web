@@ -67,40 +67,15 @@ const NewsletterForm = ({ status, message, onValidated }) => {
             autoComplete="off"
             className="d-flex newsletter-input-fields"
           >
-            <div className="form-fields">
-              <div className="form-field">
-                <Controller
-                  name="discordHandle"
-                  control={control}
-                  rules={{
-                    required: true,
-                  }}
-                  render={({ field: { name, value, onChange } }) => {
-                    return (
-                      <Input
-                        required
-                        defaultValue={value || ""}
-                        name={name}
-                        value={value || ""}
-                        onChange={onChange}
-                        placeholder="Discord Handle"
-                      />
-                    );
-                  }}
-                />
-              </div>
-            </div>
             <div className="submit-btn">
               <Button
-                disabled={!values.discordHandle}
                 className="light"
                 title="Join Mumbai HackerDAO"
                 onClick={joinMumbai}
               />
               <Button
-                disabled={!values.discordHandle}
                 className="light"
-                title="Join Goerli HackerDAO"
+                title="Join Görli HackerDAO"
                 onClick={joinGoerli}
               />
             </div>
