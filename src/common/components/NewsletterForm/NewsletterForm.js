@@ -9,13 +9,10 @@ const goerliAddress = "0x04738ff6605bb59b7b0985614279d4fF54E619c7";
 import EthIcon from "common/assets/image/ethereum.svg";
 import NextImage from "common/components/NextImage";
 import MumbaiICon from "common/assets/image/mumbai.svg";
+import { useState } from "react";
 
-const NewsletterForm = ({ status, message, onValidated }) => {
-  const { control, handleSubmit, watch } = useForm({
-    mode: "onChange",
-  });
-
-  const values = watch();
+const NewsletterForm = () => {
+  const [signed, setSigned] = useState(false);
 
   const joinMumbai = async () => {
     try {
@@ -55,7 +52,8 @@ const NewsletterForm = ({ status, message, onValidated }) => {
     const events = await tx.wait();
     console.log(events);
 
-    prompt(window.ethereum.selectedAddress);
+    // TODO: check for Event!
+    setSigned(true);
   };
 
   const joinGoerli = async () => {
@@ -94,12 +92,15 @@ const NewsletterForm = ({ status, message, onValidated }) => {
 
     const tx = await contract.join();
     const events = await tx.wait();
-    console.log(events);
+
+    // TODO: check for Event!
+    setSigned(true);
+    // console.log(events);
   };
 
   return (
     <>
-      {status !== "success" ? (
+      {!signed ? (
         <>
           <NewsletterFormWrapper
             autoComplete="off"
@@ -134,23 +135,12 @@ const NewsletterForm = ({ status, message, onValidated }) => {
             style={{
               padding: "20px 0",
             }}
-          >
-            {status === "error" ? (
-              <Text
-                style={{
-                  position: "absolute",
-                  color: "red",
-                }}
-                className="newsletter-form-error"
-                dangerouslySetInnerHTML={{ __html: getMessage(message) }}
-              />
-            ) : null}
-          </div>
+          ></div>
         </>
       ) : (
         <Text
           className="manifesto-title"
-          content="**Your subscription was successful**"
+          content="**You successfully joined HackerDAO**"
         />
       )}
     </>

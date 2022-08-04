@@ -42,6 +42,7 @@ const NewsletterFormWrapper = styled.form`
       .btn-icon {
         margin-left: 10px;
       }
+      font-family: Avenir;
     }
   }
 
