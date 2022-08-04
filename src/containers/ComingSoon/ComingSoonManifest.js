@@ -153,10 +153,7 @@ const ComingSoonManifest = () => {
             />
             <Text className="manifesto-email" content="----" />
 
-            <NewsletterForm
-              status={status}
-              onValidated={(formData) => subscribe(formData)}
-            />
+            <NewsletterForm/>
           </motion.div>
 
           <motion.div
