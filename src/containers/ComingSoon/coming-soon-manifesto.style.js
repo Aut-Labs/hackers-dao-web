@@ -16,7 +16,6 @@ const BannerArea = styled.section`
   .text-animation {
     position: absolute;
     width: 100%;
-    max-width: 636px;
     text-align: right;
   }
 

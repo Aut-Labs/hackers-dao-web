@@ -18,13 +18,15 @@ const NewsletterFormWrapper = styled.form`
 
   .submit-btn {
     display: flex;
-    justify-content: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 30px;
     width: 100%;
     grid-gap: 12px;
 
     button {
-      width: 100%;
+      min-width: unset;
+      width: 400px;
       height: 50px;
       min-height: 50px;
       font-size: 22px;
@@ -32,12 +34,14 @@ const NewsletterFormWrapper = styled.form`
   }
 
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     .submit-btn {
+      flex-direction: column;
       button {
-        width: 100%;
         min-width: unset;
+        width: 300px;
         height: 45px;
+        width: 300px;
         min-height: 45px;
         font-size: 22px;
       }
