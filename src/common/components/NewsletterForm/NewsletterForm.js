@@ -104,6 +104,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
             autoComplete="off"
             className="d-flex newsletter-input-fields"
           >
+    
             <div className="submit-btn">
               <Button
                 className="light"

@@ -31,6 +31,7 @@ const NewsletterFormWrapper = styled.form`
       height: 50px;
       min-height: 50px;
       font-size: 22px;
+      font-family: Avenir;
     }
   }
 
