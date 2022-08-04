@@ -142,18 +142,21 @@ const ComingSoonManifest = () => {
               opacity: scale,
             }}
           >
-            <Text className="manifesto-title" content="Join HackerDAO" />
+            <Text className="manifesto-title" content="Join the HackerDAO" />
             <Text
               className="manifesto-subtitle"
-              content="and expand it with your own roles."
+              content="HackerDAO is the first ever, fully permissionless DAO."
             />
             <Text
               className="manifesto-subtitle"
-              content="It lives on-chain, and it’s owned by you."
+              content="(1) Claim your unique ĀutID, (2) Hack on Āut,"
             />
-            <Text className="manifesto-email" content="----" />
+            <Text
+              className="manifesto-subtitle"
+              content="and (3) Create your own Standard 🏴‍☠️"
+            />
 
-            <NewsletterForm/>
+            <NewsletterForm />
           </motion.div>
 
           <motion.div

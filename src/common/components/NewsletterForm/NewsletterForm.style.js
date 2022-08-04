@@ -26,7 +26,8 @@ const NewsletterFormWrapper = styled.form`
 
     button {
       min-width: unset;
-      width: 400px;
+      font-weight: bold;
+      width: 200px;
       height: 50px;
       min-height: 50px;
       font-size: 22px;
@@ -44,6 +45,8 @@ const NewsletterFormWrapper = styled.form`
         width: 300px;
         min-height: 45px;
         font-size: 22px;
+        font-weight: bold;
+
       }
     }
 

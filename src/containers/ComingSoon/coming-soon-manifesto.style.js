@@ -39,12 +39,15 @@ const BannerArea = styled.section`
     color: white;
     font-size: 28px;
     margin-bottom: 40px;
+    font-style: italic;
+    font-family: Avenir;
   }
 
   .manifesto-subtitle {
     text-align: center;
     color: white;
     font-size: 24px;
+    font-family: Avenir;
   }
 
   .manifesto-email {
