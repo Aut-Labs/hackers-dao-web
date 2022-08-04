@@ -70,12 +70,12 @@ const NewsletterForm = ({ status, message, onValidated }) => {
             <div className="submit-btn">
               <Button
                 className="light"
-                title="Join Mumbai HackerDAO"
+                title="Join on Mumbai"
                 onClick={joinMumbai}
               />
               <Button
                 className="light"
-                title="Join Görli HackerDAO"
+                title="Join on Görli"
                 onClick={joinGoerli}
               />
             </div>

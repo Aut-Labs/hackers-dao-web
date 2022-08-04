@@ -9,10 +9,6 @@ import { FooterData } from "common/data";
 import { useState } from "react";
 import { motion, MotionConfig } from "framer-motion";
 import NewsletterForm from "common/components/NewsletterForm/NewsletterForm";
-import MailchimpSubscribe from "react-mailchimp-subscribe";
-
-const mailchimpUrl =
-  "https://skillwallet.us20.list-manage.com/subscribe/post?u=d961a0504e2d77cc544c89c33&amp;id=0599e9c37b&tags=3002995";
 
 const ComingSoonManifest = () => {
   const [initialized, setInitialized] = useState(true);
@@ -146,34 +142,20 @@ const ComingSoonManifest = () => {
               opacity: scale,
             }}
           >
-            <Text
-              className="manifesto-title"
-              content="De-Renaissance: a Collective Manifesto"
-            />
+            <Text className="manifesto-title" content="Join HackerDAO" />
             <Text
               className="manifesto-subtitle"
-              content="starts the 2nd generation of DAOs."
+              content="and expand it with your own roles."
             />
             <Text
               className="manifesto-subtitle"
               content="It lives on-chain, and it’s owned by you."
             />
-            <Text
-              className="manifesto-email"
-              content="Add your email to sign (& own) each piece of it."
-            />
-            <MailchimpSubscribe
-              url={mailchimpUrl}
-              render={(props) => {
-                const { subscribe, status, message } = props || {};
-                return (
-                  <NewsletterForm
-                    status={status}
-                    message={message}
-                    onValidated={(formData) => subscribe(formData)}
-                  />
-                );
-              }}
+            <Text className="manifesto-email" content="----" />
+
+            <NewsletterForm
+              status={status}
+              onValidated={(formData) => subscribe(formData)}
             />
           </motion.div>
 
