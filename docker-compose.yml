@@ -8,7 +8,7 @@ services:
     container_name: aut_landing_nginx
     build: ./nginx
     ports:
-      - 3001:80
+      - 6001:80
 
 networks:
   aut_coming_soon:
