@@ -1,7 +1,7 @@
 version: '3.9'
 services:
-  aut_coming_soon_web: 
-    container_name: aut_coming_soon_web
+  aut_hackers_dao_web: 
+    container_name: aut_hackers_dao_web
     build: ./
 
   aut_landing_nginx:
