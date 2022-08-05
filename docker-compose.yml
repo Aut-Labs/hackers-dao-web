@@ -4,7 +4,7 @@ services:
     container_name: aut_hackers_dao_web
     build: ./
 
-  aut_landing_nginx:
+  aut_hackers_dao_nginx:
     container_name: aut_landing_nginx
     build: ./nginx
     ports:
