@@ -1,5 +1,18 @@
 export const abi = [
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "member",
+        type: "address",
+      },
+    ],
+    name: "Joined",
+    type: "event",
+  },
+  {
     inputs: [
       {
         internalType: "address",

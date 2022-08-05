@@ -4,8 +4,8 @@ import NewsletterFormWrapper from "./NewsletterForm.style";
 import Button from "../Button";
 import { ethers } from "ethers";
 import { abi } from "../../../abis/dao.abi";
-const mumbaiAddress = "0x04738ff6605bb59b7b0985614279d4fF54E619c7";
-const goerliAddress = "0x04738ff6605bb59b7b0985614279d4fF54E619c7";
+const mumbaiAddress = "0x8eA20de15Db87Be1a8B20Da5ebD785a4a9BE9690";
+const goerliAddress = "0x09e930B4FEB47cA86236c8961B8B1e23e514ec3F";
 import EthIcon from "common/assets/image/ethereum.svg";
 import NextImage from "common/components/NextImage";
 import MumbaiICon from "common/assets/image/mumbai.svg";
@@ -30,8 +30,8 @@ const NewsletterForm = () => {
             params: {
               chainId: "0x13881",
               chainName: "Mumbai",
-              nativeCurrency,
-              rpcUrls: environment.rpcUrls?.split(","),
+              nativeCurrency: 'MATIC',
+              rpcUrls: ['https://matic-mumbai.chainstacklabs.com/'],
               blockExplorerUrls: ["https://explorer-mumbai.maticvigil.com/"],
             },
           });
@@ -50,10 +50,12 @@ const NewsletterForm = () => {
 
     const tx = await contract.join();
     const events = await tx.wait();
-    console.log(events);
 
-    // TODO: check for Event!
-    setSigned(true);
+    const joinedEventEmitted = events.events.find(
+      (event) => event.event == "Joined"
+    );
+
+    setSigned(joinedEventEmitted !== undefined);
   };
 
   const joinGoerli = async () => {
@@ -61,7 +63,7 @@ const NewsletterForm = () => {
       await window.ethereum.request({ method: "eth_requestAccounts" });
       await window.ethereum.request({
         method: "wallet_switchEthereumChain",
-        params: [{ chainId: "0x13881" }],
+        params: [{ chainId: "0x5" }],
       });
     } catch (switchError) {
       // This error code indicates that the chain has not been added to MetaMask.
@@ -70,11 +72,11 @@ const NewsletterForm = () => {
           await window.ethereum.request({
             method: "wallet_addEthereumChain",
             params: {
-              chainId: "0x13881",
-              chainName: "Mumbai",
-              nativeCurrency,
-              rpcUrls: environment.rpcUrls?.split(","),
-              blockExplorerUrls: ["https://explorer-mumbai.maticvigil.com/"],
+              chainId: "0x5",
+              chainName: "Goerli",
+              nativeCurrency: 'ETH',
+              rpcUrls: ['https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
+              blockExplorerUrls: ["https://goerli.etherscan.io/"],
             },
           });
         } catch (addError) {
@@ -93,9 +95,10 @@ const NewsletterForm = () => {
     const tx = await contract.join();
     const events = await tx.wait();
 
-    // TODO: check for Event!
-    setSigned(true);
-    // console.log(events);
+    const joinedEventEmitted = events.events.find(
+      (event) => event.event == "Joined"
+    );
+    setSigned(joinedEventEmitted !== undefined);
   };
 
   return (
