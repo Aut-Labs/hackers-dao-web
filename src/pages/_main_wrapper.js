@@ -14,13 +14,13 @@ const MainWrapper = ({ children, hideAuth }) => {
     <ThemeProvider theme={theme}>
       <>
         <Head>
-          <title>Aut</title>
+          <title></title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
             key="viewport"
           />
-          <meta property="og:title" content="Aut" />
+          <meta property="og:title" content="Āut Protocol" />
           <meta
             name="description"
             content="Do more with your DAO 👥. Āut is an expandable Protocol for Role-based Membership & Governance in Web3 Communities."
