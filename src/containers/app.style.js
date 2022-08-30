@@ -30,6 +30,22 @@ const GlobalStyle = createGlobalStyle`
   .reusecore__button {
     font-weight: 500;
   }
+
+  .reuseModalHolder.customModal {
+    border: 0 !important;
+  }
+
+  .playground-btn.light {
+    height: 45px;
+    min-height: 45px;
+    max-height: 45px;
+    font-size: 20px;
+    min-width: 100%;
+    margin: 0 auto;
+    margin-top: 26px;
+    padding: 0;
+  }
+
   .container {
     max-width: 1600px;
     @media only screen and (max-width: 1600px) {
