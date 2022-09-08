@@ -224,11 +224,12 @@ const NewsletterForm = () => {
 
       if (joinedEventEmitted?.args && joinedEventEmitted?.args?.length) {
         const [address] = joinedEventEmitted?.args;
+
         setProps({
           loading: false,
           error: "",
           explorerUrl,
-          address,
+          address: contractAddress,
         });
       } else {
         throw new Error("No address was found from join event!");
