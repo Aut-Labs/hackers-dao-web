@@ -23,9 +23,6 @@ export default function CustomApp({ Component, pageProps }) {
         email: 'frontend@aut.id',
         fullName: 'Dao Hacker',
       },
-      ssr: {
-        renderDelay: 5000, // 0 - 15000 (ms)
-      },
     });
   }, [])
   return (
