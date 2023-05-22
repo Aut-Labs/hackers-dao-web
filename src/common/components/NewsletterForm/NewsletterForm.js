@@ -30,19 +30,14 @@ export const trimAddress = (address) => {
 
 const SuccessMessage = ({ explorerUrl, address }) => (
   <>
-    <Text color="white" fontSize="32px" content="Congrats, Hacker 🏴‍☠️" />
+    <Text color="white" fontSize="32px" content="Congrats" />
 
     <Text
       color="white"
       fontSize="18px"
-      content={
-        <>
-          You've joined the HackerDAO {"---> "} <br /> here's the address of the
-          community. <br /> Copy it, you'll need it in a minute 👀
-        </>
-      }
+      content={<>You've submitted a like on the Mumbai chain</>}
     />
-
+    {/* 
     <div
       style={{
         flex: 1,
@@ -93,7 +88,7 @@ const SuccessMessage = ({ explorerUrl, address }) => (
       href="https://playground.aut.id/"
       target="_blank"
       title="Playground"
-    />
+    /> */}
   </>
 );
 
@@ -219,19 +214,12 @@ const NewsletterForm = () => {
       const likedEventEmitted = events.events.find(
         (event) => event.event == "Liked"
       );
-
-      if (likedEventEmitted?.args && likedEventEmitted?.args?.length) {
-        const [address] = likedEventEmitted?.args;
-
-        setProps({
-          loading: false,
-          error: "",
-          explorerUrl,
-          address: contractAddress,
-        });
-      } else {
-        throw new Error("No address was found from join event!");
-      }
+      setProps({
+        loading: false,
+        error: "",
+        explorerUrl,
+        address: contractAddress,
+      });
     } catch (error) {
       setProps({
         loading: false,
