@@ -2,10 +2,12 @@ version: '3.9'
 services:
   aut_hackers_dao_web: 
     container_name: aut_hackers_dao_web
+    image: aut_hackers_dao_web
     build: ./
 
   aut_hackers_dao_nginx:
     container_name: aut_hackers_dao_nginx
+    image: aut_hackers_dao_nginx
     build: ./nginx
     ports:
       - 6001:80
