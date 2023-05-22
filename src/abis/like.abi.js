@@ -1,15 +1,8 @@
 export const abi = [
   {
     anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: "address",
-        name: "member",
-        type: "address",
-      },
-    ],
-    name: "Joined",
+    inputs: [],
+    name: "Liked",
     type: "event",
   },
   {
@@ -20,7 +13,7 @@ export const abi = [
         type: "address",
       },
     ],
-    name: "isMember",
+    name: "isLiked",
     outputs: [
       {
         internalType: "bool",
@@ -33,7 +26,7 @@ export const abi = [
   },
   {
     inputs: [],
-    name: "join",
+    name: "like",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

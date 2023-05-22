@@ -3,12 +3,10 @@ import NewsletterFormWrapper from "./NewsletterForm.style";
 import Button from "../Button";
 import { LinkButton } from "../Button";
 import { ethers } from "ethers";
-import { abi } from "../../../abis/dao.abi";
-const mumbaiAddress = "0x8eA20de15Db87Be1a8B20Da5ebD785a4a9BE9690";
-const goerliAddress = "0x09e930B4FEB47cA86236c8961B8B1e23e514ec3F";
-import EthIcon from "common/assets/image/ethereum.svg";
+import { abi } from "../../../abis/like.abi";
+const mumbaiAddress = "0x42bD213D1de0A93Dda6F3782f65bac04d140917D";
 import NextImage from "common/components/NextImage";
-import MumbaiICon from "common/assets/image/mumbai.svg";
+import HeartIcon from "common/assets/image/red-heart-icon.svg";
 import { useState } from "react";
 import { openModal } from "@redq/reuse-modal";
 import "@redq/reuse-modal/lib/index.css";
@@ -215,15 +213,15 @@ const NewsletterForm = () => {
     const contract = new ethers.Contract(contractAddress, abi, signer);
 
     try {
-      const tx = await contract.join();
+      const tx = await contract.like();
       const events = await tx.wait();
 
-      const joinedEventEmitted = events.events.find(
-        (event) => event.event == "Joined"
+      const likedEventEmitted = events.events.find(
+        (event) => event.event == "Liked"
       );
 
-      if (joinedEventEmitted?.args && joinedEventEmitted?.args?.length) {
-        const [address] = joinedEventEmitted?.args;
+      if (likedEventEmitted?.args && likedEventEmitted?.args?.length) {
+        const [address] = likedEventEmitted?.args;
 
         setProps({
           loading: false,
@@ -278,42 +276,6 @@ const NewsletterForm = () => {
     await join(switchNetwork, mumbaiAddress, explorer);
   };
 
-  const joinGoerli = async () => {
-    const explorer = "https://goerli.etherscan.io/";
-    const switchNetwork = async () => {
-      try {
-        await window.ethereum.request({ method: "eth_requestAccounts" });
-        await window.ethereum.request({
-          method: "wallet_switchEthereumChain",
-          params: [{ chainId: "0x5" }],
-        });
-      } catch (switchError) {
-        // This error code indicates that the chain has not been added to MetaMask.
-        if (switchError.code === 4902) {
-          try {
-            await window.ethereum.request({
-              method: "wallet_addEthereumChain",
-              params: {
-                chainId: "0x5",
-                chainName: "Goerli",
-                nativeCurrency: "ETH",
-                rpcUrls: [
-                  "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-                ],
-                blockExplorerUrls: [explorer],
-              },
-            });
-          } catch (addError) {
-            throw new Error(addError);
-          }
-        } else {
-          throw new Error(switchError);
-        }
-      }
-    };
-    await join(switchNetwork, goerliAddress, explorer);
-  };
-
   return (
     <>
       <NewsletterFormWrapper
@@ -323,16 +285,9 @@ const NewsletterForm = () => {
         <div className="submit-btn">
           <Button
             className="light"
-            icon={<NextImage height="30px" width="30px" src={EthIcon} />}
+            icon={<NextImage height="30px" width="30px" src={HeartIcon} />}
             iconPosition="right"
-            title="Görli"
-            onClick={joinGoerli}
-          />
-          <Button
-            className="light"
-            icon={<NextImage height="30px" width="30px" src={MumbaiICon} />}
-            iconPosition="right"
-            title="Mumbai"
+            title="Like"
             onClick={joinMumbai}
           />
         </div>

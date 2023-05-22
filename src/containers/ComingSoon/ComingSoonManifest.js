@@ -142,39 +142,9 @@ const ComingSoonManifest = () => {
               opacity: scale,
             }}
           >
-            <Text className="manifesto-title" content="Join the HackerDAO" />
-            <Text
-              className="manifesto-subtitle"
-              content="HackerDAO is the first ever, fully permissionless DAO."
-            />
-            <Text
-              className="manifesto-subtitle"
-              content="(1) Claim your unique ĀutID, (2) Hack on Āut,"
-            />
-            <Text
-              className="manifesto-subtitle"
-              content="and (3) Create your own Standard 🏴‍☠️"
-            />
+            <Text className="manifesto-title" content="Like this project" />
 
             <NewsletterForm />
-          </motion.div>
-
-          <motion.div
-            className="socials-animation"
-            initial={false}
-            animate={{
-              opacity: scale,
-            }}
-          >
-            <div className="social-links">
-              {social.map(({ link, icon }, index) => (
-                <Link href={link} key={`footer-social-key-${index}`}>
-                  <a target="_blank">
-                    <NextImage src={icon} alt="social image" />
-                  </a>
-                </Link>
-              ))}
-            </div>
           </motion.div>
         </MotionConfig>
       </BannerArea>
