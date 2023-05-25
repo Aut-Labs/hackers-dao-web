@@ -1,9 +1,5 @@
 import { Modal } from "@redq/reuse-modal";
 import { useEffect } from "react";
-import * as Sentry from "@sentry/react";
-import { BrowserTracing } from "@sentry/tracing";
-import SentryRRWeb from "@sentry/rrweb";
-import markerSDK from "@marker.io/browser";
 
 export function reportWebVitals(metric) {
   console.log(metric);

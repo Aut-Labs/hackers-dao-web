@@ -1,7 +1,6 @@
 import Text from "../Text";
 import NewsletterFormWrapper from "./NewsletterForm.style";
 import Button from "../Button";
-import { LinkButton } from "../Button";
 import { ethers } from "ethers";
 import { abi } from "../../../abis/like.abi";
 const mumbaiAddress = "0x42bD213D1de0A93Dda6F3782f65bac04d140917D";
@@ -13,9 +12,6 @@ import "@redq/reuse-modal/lib/index.css";
 import animationData from "common/assets/aut-load.json";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useEffect } from "react";
-import { ic_content_copy_outline } from "react-icons-kit/md/ic_content_copy_outline";
-import { Icon } from "react-icons-kit";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export const trimAddress = (address) => {
   if (!address) {
@@ -154,6 +150,26 @@ const CongratsPopup = ({ getProps }) => {
 };
 
 const NewsletterForm = () => {
+  const [biconomy, setBiconomy] = useState(null);
+
+  useEffect(() => {
+    if (!biconomy) {
+      const start = async () => {
+        const { SDKBiconomyWrapper } = await import(
+          "@aut-labs-private/sdk-biconomy"
+        );
+
+        const bico = new SDKBiconomyWrapper({
+          enableDebugMode: true,
+          apiKey: "UYS1gnKYc.dea53d76-ec48-4976-ad98-ad82e6f12706",
+          contractAddresses: [mumbaiAddress],
+        });
+        setBiconomy(bico);
+      };
+      start();
+    }
+  }, []);
+
   const openPopup = (componentProps, modalComponent) => {
     openModal({
       config: {
@@ -204,16 +220,19 @@ const NewsletterForm = () => {
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-
     const contract = new ethers.Contract(contractAddress, abi, signer);
+    await biconomy.initializeBiconomy(provider);
 
     try {
-      const tx = await contract.like();
-      const events = await tx.wait();
+      const { data } = await contract.populateTransaction.like();
+      await biconomy.sendEIP712Transaction(contract, data);
 
-      const likedEventEmitted = events.events.find(
-        (event) => event.event == "Liked"
-      );
+      // const tx = await contract.like();
+      // const events = await tx.wait();
+
+      // const likedEventEmitted = events.events.find(
+      //   (event) => event.event == "Liked"
+      // );
       setProps({
         loading: false,
         error: "",
