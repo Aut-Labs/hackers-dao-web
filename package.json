@@ -10,7 +10,7 @@
     "dev": "next"
   },
   "dependencies": {
-    "@aut-labs-private/sdk-biconomy": "^0.0.3",
+    "@aut-labs-private/sdk-biconomy": "^0.0.2",
     "@glidejs/glide": "^3.4.1",
     "@lottiefiles/lottie-player": "^1.5.7",
     "@lottiefiles/react-lottie-player": "^3.4.7",
