@@ -25,7 +25,8 @@ RUN apk --update --no-cache \
     libjpeg-turbo \
     libjpeg-turbo-dev \
     &&  rm -fr /var/cache/apk/*
-
+    
+COPY .npmrc ./
 COPY ./package*.json ./
 
 RUN npm install --global pm2
