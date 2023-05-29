@@ -10,7 +10,4 @@ services:
     image: aut_hackers_dao_nginx
     build: ./nginx
     ports:
-      - 6001:80
-
-networks:
-  aut_hackers_dao:
+      - 6001:9090
