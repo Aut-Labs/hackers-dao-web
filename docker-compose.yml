@@ -11,3 +11,6 @@ services:
     build: ./nginx
     ports:
       - 6001:80
+
+networks:
+  aut_hackers_dao:
