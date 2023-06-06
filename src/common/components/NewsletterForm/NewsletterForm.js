@@ -3,7 +3,7 @@ import NewsletterFormWrapper from "./NewsletterForm.style";
 import Button from "../Button";
 import { ethers } from "ethers";
 import { abi } from "../../../abis/like.abi";
-const mumbaiAddress = "0x8eA20de15Db87Be1a8B20Da5ebD785a4a9BE9690";
+const mumbaiAddress = "0xB161B504699C8DBc88aBAc3dB44C47eE097d693d";
 import NextImage from "common/components/NextImage";
 import HeartIcon from "common/assets/image/red-heart-icon.svg";
 import { useState } from "react";
