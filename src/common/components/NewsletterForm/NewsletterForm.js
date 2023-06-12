@@ -153,21 +153,21 @@ const NewsletterForm = () => {
   const [biconomy, setBiconomy] = useState(null);
 
   useEffect(() => {
-    if (!biconomy) {
-      const start = async () => {
-        const { SDKBiconomyWrapper } = await import(
-          "@aut-labs-private/sdk-biconomy"
-        );
+    // if (!biconomy) {
+    //   const start = async () => {
+    //     const { SDKBiconomyWrapper } = await import(
+    //       "@aut-labs-private/sdk-biconomy"
+    //     );
 
-        const bico = new SDKBiconomyWrapper({
-          enableDebugMode: true,
-          apiKey: "UYS1gnKYc.dea53d76-ec48-4976-ad98-ad82e6f12706",
-          contractAddresses: [mumbaiAddress],
-        });
-        setBiconomy(bico);
-      };
-      start();
-    }
+    //     const bico = new SDKBiconomyWrapper({
+    //       enableDebugMode: true,
+    //       apiKey: "UYS1gnKYc.dea53d76-ec48-4976-ad98-ad82e6f12706",
+    //       contractAddresses: [mumbaiAddress],
+    //     });
+    //     setBiconomy(bico);
+    //   };
+    //   start();
+    // }
   }, []);
 
   const openPopup = (componentProps, modalComponent) => {
@@ -221,18 +221,18 @@ const NewsletterForm = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const contract = new ethers.Contract(contractAddress, abi, signer);
-    await biconomy.initializeBiconomy(provider);
+    // await biconomy.initializeBiconomy(provider);
 
     try {
-      const { data } = await contract.populateTransaction.like();
-      await biconomy.sendEIP712Transaction(contract, data);
+      // const { data } = await contract.populateTransaction.like();
+      // await biconomy.sendEIP712Transaction(contract, data);
 
-      // const tx = await contract.like();
-      // const events = await tx.wait();
+      const tx = await contract.like();
+      const events = await tx.wait();
 
-      // const likedEventEmitted = events.events.find(
-      //   (event) => event.event == "Liked"
-      // );
+      const likedEventEmitted = events.events.find(
+        (event) => event.event == "Liked"
+      );
       setProps({
         loading: false,
         error: "",
